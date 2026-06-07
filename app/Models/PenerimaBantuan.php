@@ -17,14 +17,30 @@ class PenerimaBantuan extends Model
         'nomor_kk',
         'nama_kepala_keluarga',
         'jumlah_tanggungan',
-        'foto_kondisi_rumah',
+        'foto',
         'lat',
         'lng',
-        'alamat'
+        'alamat',
+        'jarak_ke_penyalur',
+        'dokumen_laporan',
+        'status_persetujuan',
+        'alasan_penolakan',
+        'tanggal_pencairan_terakhir',
+    ];
+
+    protected $casts = [
+        'tanggal_pencairan_terakhir' => 'datetime',
     ];
 
     public function tempat_ibadah()
     {
         return $this->belongsTo(TempatIbadah::class, 'id_tempat_ibadah');
+    }
+
+
+
+    public function logDistribusi()
+    {
+        return $this->hasMany(LogDistribusi::class, 'id_penerima');
     }
 }

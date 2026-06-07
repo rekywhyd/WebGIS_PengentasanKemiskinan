@@ -39,9 +39,9 @@
                 </a>
             @endif
 
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
+            <button type="submit" class="ms-3 px-6 py-2.5 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium hover:shadow-lg hover:shadow-indigo-500/30 hover:-translate-y-0.5 transition-all duration-300">
+                {{ __('Masuk') }}
+            </button>
         </div>
     </form>
 </x-guest-layout>

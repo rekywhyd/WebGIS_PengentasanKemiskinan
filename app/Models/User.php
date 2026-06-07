@@ -23,7 +23,13 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
+        'id_tempat_ibadah',
     ];
+
+    public function tempatIbadah()
+    {
+        return $this->belongsTo(TempatIbadah::class, 'id_tempat_ibadah');
+    }
 
     /**
      * The attributes that should be hidden for serialization.

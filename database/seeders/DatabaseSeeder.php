@@ -13,9 +13,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Memanggil SuperAdminSeeder
+        // Memanggil AdminSeeder
         $this->call([
-            SuperAdminSeeder::class,
+            AdminSeeder::class,
         ]);
     }
 }

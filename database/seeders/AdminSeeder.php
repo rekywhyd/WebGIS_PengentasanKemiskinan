@@ -7,7 +7,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
-class SuperAdminSeeder extends Seeder
+class AdminSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,9 +15,9 @@ class SuperAdminSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'name' => env('SUPERADMIN_NAME', 'SuperAdmin'),
-            'email' => env('SUPERADMIN_EMAIL', 'admin@gmail.com'),
-            'password' => Hash::make(env('SUPERADMIN_PASSWORD', 'qwerty#123')), // Ganti dengan password yang aman
+            'name' => env('ADMIN_NAME', 'Admin'),
+            'email' => env('ADMIN_EMAIL', 'admin@gmail.com'),
+            'password' => Hash::make(env('ADMIN_PASSWORD', 'qwerty#123')), // Ganti dengan password yang aman
             'role' => 'admin', // Menyesuaikan kolom role yang Anda buat di tabel users
         ]);
     }
