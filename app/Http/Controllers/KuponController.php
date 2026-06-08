@@ -18,6 +18,10 @@ class KuponController extends Controller
 {
     public function index(Request $request)
     {
+        if (Auth::user()->role !== 'user') {
+            abort(403, 'Cetak kupon hanya tersedia untuk akun role user.');
+        }
+
         $query = PenerimaBantuan::with('tempat_ibadah')->where('status_persetujuan', 'disetujui');
 
         // Jika admin, bisa melihat semua dan filter. Jika user, hanya melihat yang sesuai tempat ibadahnya.
@@ -42,6 +46,10 @@ class KuponController extends Controller
     }
     public function show($id)
     {
+        if (Auth::user()->role !== 'user') {
+            abort(403, 'Cetak kupon hanya tersedia untuk akun role user.');
+        }
+
         $warga = PenerimaBantuan::findOrFail($id);
 
         // Tentukan periode kupon
@@ -95,6 +103,10 @@ class KuponController extends Controller
 
     public function cetak(Request $request)
     {
+        if (Auth::user()->role !== 'user') {
+            abort(403, 'Cetak kupon hanya tersedia untuk akun role user.');
+        }
+
         $ids = $request->input('penerima_ids');
         
         if (empty($ids) || !is_array($ids)) {
